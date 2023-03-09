@@ -1,12 +1,12 @@
 public class CreditPaymentService {
-    public double calculate(double a, double b, double c) {
+    public double calculate(double amountOfCredit, double annualPercentage, double months) {
 
-        double mps = (b / 12 / 100);
+        double monthlyInterestRate = (annualPercentage / 12 / 100);
 
-        double ka = (mps * (Math.pow(1 + mps, c))) / (Math.pow(1 + mps, c) - 1);
+        double annuityRatio = (monthlyInterestRate * (Math.pow(1 + monthlyInterestRate, months))) / (Math.pow(1 + monthlyInterestRate, months) - 1);
 
-        double mp = (a * ka);
+        double annuityContribution = (amountOfCredit * annuityRatio);
 
-        return mp;
+        return annuityContribution;
     }
 }
